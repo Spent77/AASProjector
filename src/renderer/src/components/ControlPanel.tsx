@@ -20,6 +20,8 @@ export default function ControlPanel(): JSX.Element {
   const setShowPlaceLabels = useStore((s) => s.setShowPlaceLabels)
   const airborneLabelsOnly = useStore((s) => s.airborneLabelsOnly)
   const setAirborneLabelsOnly = useStore((s) => s.setAirborneLabelsOnly)
+  const hoverTooltips = useStore((s) => s.hoverTooltips)
+  const setHoverTooltips = useStore((s) => s.setHoverTooltips)
 
   if (collapsed) {
     return (
@@ -66,6 +68,14 @@ export default function ControlPanel(): JSX.Element {
             onChange={(e) => setAirborneLabelsOnly(e.target.checked)}
           />
           <span>Aircraft labels: airborne only</span>
+        </label>
+        <label className="chip wide">
+          <input
+            type="checkbox"
+            checked={hoverTooltips}
+            onChange={(e) => setHoverTooltips(e.target.checked)}
+          />
+          <span>Hover for details</span>
         </label>
         <label className="chip wide">
           <input

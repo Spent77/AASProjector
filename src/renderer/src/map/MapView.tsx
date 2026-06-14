@@ -4,6 +4,7 @@ import 'maplibre-gl/dist/maplibre-gl.css'
 import { MapboxOverlay } from '@deck.gl/mapbox'
 import { getBasemap } from './basemaps'
 import { buildLayers } from './layers'
+import { getTooltip } from './tooltip'
 import { useStore } from '@/state/store'
 
 // Hide/show the basemap's text (place/city) labels. Vector styles (CARTO
@@ -43,7 +44,12 @@ export default function MapView(): JSX.Element {
     })
     map.addControl(new maplibregl.NavigationControl({ showCompass: false }), 'bottom-right')
 
-    const overlay = new MapboxOverlay({ interleaved: false, layers: [] })
+    const overlay = new MapboxOverlay({
+      interleaved: false,
+      layers: [],
+      // Hover tooltip; reads the live toggle so it can be turned off.
+      getTooltip: (info) => (useStore.getState().hoverTooltips ? getTooltip(info) : null)
+    })
     map.addControl(overlay)
 
     mapRef.current = map

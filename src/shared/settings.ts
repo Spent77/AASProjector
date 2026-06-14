@@ -11,6 +11,7 @@ export interface PersistedSettings {
   showTracks: boolean
   showPlaceLabels: boolean
   airborneLabelsOnly: boolean
+  hoverTooltips: boolean
   labelSizes: { aircraft: number; ships: number; satellites: number }
   iconSizes: { aircraft: number; ships: number; satellites: number }
   maxContacts: { aircraft: number; ships: number; satellites: number }
@@ -33,6 +34,7 @@ export const DEFAULT_SETTINGS: PersistedSettings = {
   showTracks: false,
   showPlaceLabels: true,
   airborneLabelsOnly: false,
+  hoverTooltips: true,
   labelSizes: { aircraft: 12, ships: 11, satellites: 11 },
   iconSizes: { aircraft: 22, ships: 18, satellites: 3 },
   maxContacts: { aircraft: 1000, ships: 1000, satellites: 12000 },

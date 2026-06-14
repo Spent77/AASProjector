@@ -78,6 +78,28 @@ body {
   color: #e0a07e;
 }
 
+/* deck.gl hover tooltip inner layout (outer box styled inline from tooltip.ts) */
+.tt-title {
+  font-weight: 600;
+  margin-bottom: 4px;
+  white-space: nowrap;
+}
+
+.tt-row {
+  display: flex;
+  justify-content: space-between;
+  gap: 14px;
+  line-height: 1.45;
+}
+
+.tt-k {
+  color: #8b9bb0;
+}
+
+.tt-v {
+  font-variant-numeric: tabular-nums;
+}
+
 .status-error {
   color: #ff9c9c;
   font-size: 12px;

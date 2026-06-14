@@ -60,6 +60,7 @@ export interface AppState {
   showTracks: boolean
   showPlaceLabels: boolean // basemap city/place names
   airborneLabelsOnly: boolean // hide labels for aircraft on the ground
+  hoverTooltips: boolean // show details on hover
   // Appearance, per layer.
   labelSizes: Record<LayerId, number> // label text px
   iconSizes: Record<LayerId, number> // marker px (dot radius for satellites)
@@ -98,6 +99,7 @@ export interface AppState {
   setShowTracks: (v: boolean) => void
   setShowPlaceLabels: (v: boolean) => void
   setAirborneLabelsOnly: (v: boolean) => void
+  setHoverTooltips: (v: boolean) => void
   setLabelSize: (layer: LayerId, n: number) => void
   setIconSize: (layer: LayerId, n: number) => void
   setMaxContacts: (layer: LayerId, n: number) => void
@@ -129,6 +131,7 @@ export const useStore = create<AppState>((set) => ({
   showTracks: false,
   showPlaceLabels: true,
   airborneLabelsOnly: false,
+  hoverTooltips: true,
   labelSizes: { aircraft: 12, ships: 11, satellites: 11 },
   iconSizes: { aircraft: 22, ships: 18, satellites: 3 },
   maxContacts: { aircraft: 1000, ships: 1000, satellites: 12000 },
@@ -171,6 +174,7 @@ export const useStore = create<AppState>((set) => ({
   setShowTracks: (v) => set({ showTracks: v }),
   setShowPlaceLabels: (v) => set({ showPlaceLabels: v }),
   setAirborneLabelsOnly: (v) => set({ airborneLabelsOnly: v }),
+  setHoverTooltips: (v) => set({ hoverTooltips: v }),
   setLabelSize: (layer, n) =>
     set((s) => ({ labelSizes: { ...s.labelSizes, [layer]: n } })),
   setIconSize: (layer, n) =>

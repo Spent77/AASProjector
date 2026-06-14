@@ -13,6 +13,7 @@ function configSnapshot(s: AppState): Record<string, unknown> {
     showTracks: s.showTracks,
     showPlaceLabels: s.showPlaceLabels,
     airborneLabelsOnly: s.airborneLabelsOnly,
+    hoverTooltips: s.hoverTooltips,
     labelSizes: s.labelSizes,
     iconSizes: s.iconSizes,
     maxContacts: s.maxContacts,
@@ -57,6 +58,7 @@ export function useSettingsSync(): void {
         ...(typeof s.airborneLabelsOnly === 'boolean'
           ? { airborneLabelsOnly: s.airborneLabelsOnly }
           : {}),
+        ...(typeof s.hoverTooltips === 'boolean' ? { hoverTooltips: s.hoverTooltips } : {}),
         ...(s.labelSizes ? { labelSizes: s.labelSizes } : {}),
         ...(s.iconSizes ? { iconSizes: s.iconSizes } : {}),
         ...(s.maxContacts ? { maxContacts: s.maxContacts } : {}),
